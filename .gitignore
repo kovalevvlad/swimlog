@@ -3,3 +3,4 @@
 *.class
 bower_components
 *.db
+backend/target/

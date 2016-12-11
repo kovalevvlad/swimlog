@@ -35,7 +35,7 @@ public class Server {
     }
 
     public static void main(String[] args) {
-        new Server(9090, "/home/vladimir/code/swimlog/data.mv.db").run();
+        new Server(9090, "data.mv.db").run();
     }
 
     private void run() {

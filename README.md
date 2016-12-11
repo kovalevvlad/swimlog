@@ -23,6 +23,10 @@ This will get the backend running on http://localhost:9090. Now let's go to the 
 ```
 cd <dir>/frontend
 ```
+Before we can use the frontend, we will need to install all dependencies. I use bower for dependency management (which you will need to install to be able to set up the dependencies):
+```
+bower install
+```
 We will need to serve the frontend via a webserver. I like python's SimpleHTTPServer for its simplicity (feel free to use whatever you like):
 ```
 python -m SimpleHTTPServer

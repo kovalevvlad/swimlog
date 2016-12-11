@@ -1,12 +1,12 @@
 package london.stambourne6.swimlog.model;
 
 import com.google.common.base.Preconditions;
-import com.sun.istack.internal.NotNull;
-import com.sun.istack.internal.Nullable;
 import london.stambourne6.swimlog.controller.PlaintextUserCredentials;
 import london.stambourne6.swimlog.controller.PlaintextUserCredentialsWithRole;
 import org.apache.commons.io.IOUtils;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -88,7 +88,7 @@ public class Database {
                 });
     }
 
-    public @Nullable User userForId(int userId) {
+    public @Null User userForId(int userId) {
         return runWithPreparedStatement(
             "SELECT u.name, r.name, u.salt, u.hashed_password FROM \"user\" AS u\n" +
             "JOIN \"role\" AS r ON r.id = u.role_id WHERE u.id = ?",
@@ -106,7 +106,7 @@ public class Database {
             });
     }
 
-    public @Nullable User userForName(@NotNull String username) {
+    public @Null User userForName(@NotNull String username) {
         return runWithPreparedStatement(
                 "SELECT u.id, r.name, u.salt, u.hashed_password FROM \"user\" AS u\n" +
                         "JOIN \"role\" AS r ON r.id = u.role_id WHERE u.name = ?",
@@ -124,7 +124,7 @@ public class Database {
                 });
     }
 
-    private @Nullable User userForUsername(@NotNull String username) {
+    private @Null User userForUsername(@NotNull String username) {
         Preconditions.checkArgument(username != null, "username must not be null");
         return runWithPreparedStatement(
                 "SELECT u.id, r.name, u.salt, u.hashed_password FROM \"user\" AS u\n" +
@@ -219,7 +219,7 @@ public class Database {
                 });
     }
 
-    public @Nullable
+    public @Null
     SwimWithId swimForId(int swimId) {
         return runWithPreparedStatement("SELECT \"date\", duration_seconds, distance_km, user_id FROM swim WHERE id = ?", st -> {
             st.setInt(1, swimId);
@@ -243,7 +243,7 @@ public class Database {
         return swimsWithFilter(" WHERE user_id = ?", st -> st.setInt(1, user.id()));
     }
 
-    public @Nullable User userForCreadentialsIfValid(PlaintextUserCredentials userCredentials) {
+    public @Null User userForCreadentialsIfValid(PlaintextUserCredentials userCredentials) {
         User user = userForUsername(userCredentials.getUsername());
         boolean credentialsValid = user != null && Arrays.equals(user.hashedPassword(), pm.hashPassword(userCredentials.getPassword(), user.salt()));
         return credentialsValid ? user : null;

@@ -1,6 +1,6 @@
 package london.stambourne6.swimlog.controller;
 
-import com.sun.istack.internal.Nullable;
+import javax.validation.constraints.Null;
 import london.stambourne6.swimlog.model.User;
 import london.stambourne6.swimlog.model.Database;
 import london.stambourne6.swimlog.model.UserRole;
@@ -55,7 +55,7 @@ public class UsersEndpointImpl implements UsersEndpoint {
 
     @Secured
     @Override
-    public Response listSwimsForUser(int userId, @Nullable LocalDateParam fromDate, @Nullable LocalDateParam toDate) {
+    public Response listSwimsForUser(int userId, @Null LocalDateParam fromDate, @Null LocalDateParam toDate) {
         String activeUserName = securityContext.getUserPrincipal().getName();
         User activeUser = database.userForName(activeUserName);
 

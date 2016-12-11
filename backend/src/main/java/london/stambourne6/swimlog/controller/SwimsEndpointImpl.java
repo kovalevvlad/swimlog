@@ -4,9 +4,9 @@ import london.stambourne6.swimlog.model.Database;
 import london.stambourne6.swimlog.model.Swim;
 import london.stambourne6.swimlog.model.UserRole;
 
-import javax.annotation.Nullable;
 import javax.inject.Inject;
 import javax.ws.rs.core.Context;
+import javax.validation.constraints.Null;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
@@ -48,7 +48,7 @@ public class SwimsEndpointImpl implements SwimsEndpoint {
 
     @Secured(UserRole.Admin)
     @Override
-    public Response listSwims(@Nullable LocalDateParam fromDate, @Nullable LocalDateParam toDate) {
+    public Response listSwims(@Null LocalDateParam fromDate, @Null LocalDateParam toDate) {
         return Response.ok(Util.swimsBetween(database.swims(), fromDate, toDate)).build();
     }
 

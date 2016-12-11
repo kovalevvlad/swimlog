@@ -8,9 +8,9 @@ import org.glassfish.hk2.api.Factory;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.server.ResourceConfig;
 
-import javax.annotation.Nullable;
-import javax.inject.Singleton;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
+import javax.inject.Singleton;
 import javax.ws.rs.core.Response;
 import java.io.File;
 import java.lang.*;
@@ -50,7 +50,7 @@ public class Util {
         return Response.status(status).entity(new Error(String.format(message, args))).build();
     }
 
-    public static <T extends Swim> Set<T> swimsBetween(@NotNull Collection<T> swims, @Nullable LocalDateParam from, @Nullable LocalDateParam to) {
+    public static <T extends Swim> Set<T> swimsBetween(@NotNull Collection<T> swims, @Null LocalDateParam from, @Null LocalDateParam to) {
         Set<T> swimsSet = Sets.newHashSet(swims);
         if (from != null) {
             swimsSet = swimsSet.stream().filter(j -> !j.getDate().isBefore(from.date())).collect(Collectors.toSet());

@@ -1,7 +1,7 @@
 package london.stambourne6.swimlog.model;
 
 import com.google.common.base.Objects;
-import com.sun.istack.internal.NotNull;
+import javax.validation.constraints.NotNull;
 
 import java.util.Arrays;
 

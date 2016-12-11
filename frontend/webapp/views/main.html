@@ -1,0 +1,9 @@
+<div class="content-container full-height" ng-controller="MainController">
+    <div class="main_page_header">
+        <a class="header_button" ng-if="role != 'User'" ng-click="goTo('views/users.html')">Users</a>
+        <a class="header_button" ng-if="role == 'Admin'" ng-click="goTo('views/all-swims.html')">All Swims</a>
+        <a class="header_button" ng-click="goTo('views/my-swims.html')">My Swims</a>
+    </div>
+
+    <ng-include src="currentPage"></ng-include>
+</div>

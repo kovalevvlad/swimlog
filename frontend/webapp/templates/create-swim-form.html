@@ -1,0 +1,38 @@
+<h4>Add New Swim</h4>
+<form name="newSwimForm"
+      data-toggle="validator"
+      role="form"
+      ng-submit="slOnSubmit(!!slHideUsername ? null : username, date, distance, duration, onSuccessCallbackFromForm(newSwimForm))"
+      ng-controller="CreateSwimFormController"
+      novalidate>
+    <div ng-if="!slHideUsername" ng-class="(newSwimForm.username.$invalid && newSwimForm.username.$touched) ? 'has-error' : ''" class="form-group">
+        <label>Username</label>
+        <input type="text"
+               class="form-control"
+               name="username"
+               placeholder="username"
+               ng-pattern="passwordRegex"
+               ng-change="newSwimForm.username.$setValidity('username', validUser(username))"
+               ng-model="$parent.username"
+               required>
+        <p ng-show="newSwimForm.username.$invalid && newSwimForm.username.$touched" class="help-block">Invalid username.</p>
+    </div>
+    <div ng-class="(newSwimForm.date.$invalid && newSwimForm.date.$touched) ? 'has-error' : ''" class="form-group">
+        <label>Date</label>
+        <input type="text" class="form-control" name="date" placeholder="date" ng-model="date" ng-change="newSwimForm.date.$setValidity('date', dateIsValid(date))" ng-pattern="/^\d{4}-\d{2}-\d{2}$/" required>
+        <p ng-show="newSwimForm.date.$invalid && newSwimForm.date.$touched" class="help-block">Invalid date format.</p>
+    </div>
+    <div ng-class="(newSwimForm.distance.$invalid && newSwimForm.distance.$touched) ? 'has-error' : ''" class="form-group">
+        <label>Distance (km)</label>
+        <input type="text" class="form-control" name="distance" placeholder="distance" ng-model="distance" ng-pattern="/^\d+([.]\d*)?$/" required>
+        <p ng-show="newSwimForm.distance.$invalid && newSwimForm.distance.$touched" class="help-block">Please specify a valid number.</p>
+    </div>
+    <div ng-class="(newSwimForm.duration.$invalid && newSwimForm.duration.$touched) ? 'has-error' : ''" class="form-group">
+        <label>Duration (seconds)</label>
+        <input type="text" class="form-control" name="duration" placeholder="duration" ng-model="duration" ng-pattern="/^\d+([.]\d*)?$/" required>
+        <p ng-show="newSwimForm.duration.$invalid && newSwimForm.duration.$touched" class="help-block">Please specify a valid number.</p>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" ng-disabled="newSwimForm.$invalid">Create Swim</button>
+    </div>
+</form>

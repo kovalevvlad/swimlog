@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html lang="en" ng-app="swimlog">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Swim Log</title>
+
+
+        <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="../bower_components/bootstrap-validator/dist/validator.min.js" rel="stylesheet" />
+
+        <link href="css/styles.css" rel="stylesheet" />
+
+        <script src="../bower_components/angular/angular.min.js"></script>
+        <script src="../bower_components/angular-base64/angular-base64.min.js"></script>
+        <script src="../bower_components/angular-route/angular-route.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="../bower_components/angular-toastr/dist/angular-toastr.css" />
+        <script type="text/javascript" src="../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+
+        <script src="js/utils.js"></script>
+
+        <script src="app.js"></script>
+
+        <script src="services/authorization-service.js"></script>
+        <script src="services/configuration-repository-service.js"></script>
+        <script src="services/user-state-service.js"></script>
+        <script src="services/date-util-service.js"></script>
+        <script src="services/users-service.js"></script>
+        <script src="services/swims-service.js"></script>
+        <script src="services/feedback-service.js"></script>
+
+        <script src="controllers/login-controller.js"></script>
+        <script src="controllers/my-swims-controller.js"></script>
+        <script src="controllers/all-swims-controller.js"></script>
+        <script src="controllers/users-controller.js"></script>
+        <script src="controllers/new-user-controller.js"></script>
+        <script src="controllers/main-controller.js"></script>
+        <script src="controllers/user-editing-controller.js"></script>
+        <script src="controllers/filter-by-date-controller.js"></script>
+        <script src="controllers/create-swim-form-controller.js"></script>
+        <script src="controllers/swim-row-controller.js"></script>
+
+        <script src="directives/create-user-directive.js"></script>
+        <script src="directives/filter-by-date-directive.js"></script>
+        <script src="directives/create-swim-directive.js"></script>
+        <script src="directives/swim-row-directive.js"></script>
+    </head>
+
+    <body>
+        <div class="full-height" ng-view></div>
+    </body>
+</html>

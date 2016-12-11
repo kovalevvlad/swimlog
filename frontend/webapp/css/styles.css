@@ -1,0 +1,80 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    background-color: #e2edda;
+}
+
+label {
+    margin: 0;
+}
+
+.content-container {
+    background-color: #ddd;
+    border-width: 0 2px;
+    border-color: #999;
+    border-style: solid;
+    margin: 0 auto 0 auto;
+    padding: 20px 40px 40px 40px;
+    max-width: 1000px;
+    box-shadow: 3px 3px 20px grey;
+}
+
+.login-page-section {
+    background-color: #ddd;
+    border-width: 2px;
+    border-color: #999;
+    border-style: solid;
+    margin: 40px auto 40px auto;
+    padding: 20px 40px 40px 40px;
+    max-width: 350px;
+    border-radius: 40px;
+    box-shadow: 3px 3px 20px grey;
+}
+
+.header_button {
+    font-weight: bold;
+    font-size: x-large;
+    margin: 50px;
+    cursor: pointer;
+}
+
+.main_page_header {
+    width: 100%;
+    text-align: center;
+}
+
+.vertical-container {
+    display: flex;
+    align-items: center;
+}
+
+.form-group {
+    margin: 0;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.narrow {
+    width: 35%;
+}
+
+.full-height {
+    min-height: 100vh;
+}
+
+.swim-label {
+    font-weight: normal;
+}
+
+.swim-table-header {
+    font-weight: bold;
+    margin: 0;
+}
+
+.page-section {
+    margin: 25px 0;
+}

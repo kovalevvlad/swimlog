@@ -1,0 +1,25 @@
+<form name="filterForm" data-toggle="validator" role="form" ng-submit="slOnClick(fromDate, toDate)" ng-controller="FilterByDateController" novalidate>
+    <div ng-class="fieldNotValid(filterForm.fromDate) ? 'has-error' : ''" class="form-group">
+        <label>From date</label>
+        <input type="text"
+               class="form-control"
+               name="fromDate"
+               placeholder="from date"
+               ng-pattern="dateRegex"
+               ng-change="filterForm.fromDate.$setValidity('date', dateIsValid(fromDate))"
+               ng-model="fromDate">
+        <p ng-show="fieldNotValid(filterForm.fromDate)" class="help-block">Invalid date format (must be yyyy-mm-dd).</p>
+    </div>
+    <div ng-class="fieldNotValid(filterForm.toDate) ? 'has-error' : '';" class="form-group">
+        <label>From date</label>
+        <input type="text"
+               class="form-control"
+               name="toDate"
+               placeholder="to date"
+               ng-pattern="dateRegex"
+               ng-change="filterForm.toDate.$setValidity('date', dateIsValid(toDate))"
+               ng-model="toDate">
+        <p ng-show="fieldNotValid(filterForm.toDate)" class="help-block">Invalid date format (must be yyyy-mm-dd).</p>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-disabled="filterForm.fromDate.$invalid || filterForm.toDate.$invalid">Get Swims</button>
+</form>

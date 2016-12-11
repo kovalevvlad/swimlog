@@ -1,0 +1,35 @@
+<div id="my-swims" ng-controller="MySwimsController">
+    <h2>My Swims</h2>
+
+    <div class="page-section narrow" filter-by-date sl-on-click="getMySwims"></div>
+
+    <div class="page-section" ng-if="mySwims.length > 0">
+        <h4>List of My Swims</h4>
+        <div class="row swim-table-header">
+            <div class="col-xs-2">Date</div>
+            <div class="col-xs-2">Distance (km)</div>
+            <div class="col-xs-2">Duration (s)</div>
+            <div class="col-xs-2">Avg Speed (km/h)</div>
+            <div class="col-xs-4"></div>
+        </div>
+        <div
+            swim-row
+            ng-repeat="swim in mySwims"
+            sl-swim-id="swim.id"
+            sl-date="swim.date"
+            sl-distance="swim.distanceKm"
+            sl-duration="swim.durationSeconds"
+            sl-hide-username="true"
+            sl-username="currentUserName"
+            sl-user-id="currentUserId"
+            sl-on-update="getMySwims"></div>
+
+        <h4>Statistics</h4>
+        <label>Average Speed: {{averageSpeed.toFixed(2)}} km/h, Distance per Week: {{distancePerWeek.toFixed(2)}} km</label>
+    </div>
+    <div ng-if="mySwims.length == 0" class="page-section">
+        You have no swims.
+    </div>
+
+    <div class="page-section narrow" create-swim sl-on-submit="insertSwim" sl-hide-username="true"></div>
+</div>

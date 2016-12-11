@@ -1,0 +1,22 @@
+{
+  "name": "swimlog-frontend",
+  "authors": [
+    "Vladimir Kovalev <kovalev.vladimir1990@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-base64": "^2.0.5",
+    "angular": "1.5.8"
+  }
+}

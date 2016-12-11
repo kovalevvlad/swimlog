@@ -1,0 +1,41 @@
+<form name="newUserForm" data-toggle="validator" role="form" ng-submit="insertUser(username, password, newUserForm)" novalidate ng-controller="NewUserController">
+    <h2>Create New User</h2>
+    <div ng-class="(newUserForm.username.$invalid && newUserForm.username.$touched) ? 'has-error' : ''" class="form-group">
+        <label>Username</label>
+        <input type="text"
+               class="form-control"
+               name="username"
+               placeholder="username"
+               ng-pattern="usernameRegex"
+               ng-minlength="{{config.minUsernameLength}}"
+               ng-maxlength="{{config.maxUsernameLength}}"
+               ng-model="username"
+               required>
+        <p ng-show="(newUserForm.username.$error.minlength || newUserForm.username.$error.required) && newUserForm.username.$touched" class="help-block">Username too short.</p>
+        <p ng-show="newUserForm.username.$error.maxlength && newUserForm.username.$touched" class="help-block">Username too long.</p>
+        <p ng-show="newUserForm.username.$error.pattern && newUserForm.username.$touched" class="help-block">Username can only contain alphanumeric characters and underscores.</p>
+    </div>
+    <div ng-class="(newUserForm.password.$invalid && newUserForm.password.$touched) ? 'has-error' : ''" class="form-group">
+        <label>Password</label>
+        <input type="password"
+               class="form-control"
+               name="password"
+               placeholder="password"
+               ng-pattern="passwordRegex"
+               ng-minlength="{{config.minPasswordLength}}"
+               ng-maxlength="{{config.maxPasswordLength}}"
+               ng-model="password"
+               required>
+        <p ng-show="(newUserForm.password.$error.minlength || newUserForm.password.$error.required) && newUserForm.password.$touched" class="help-block">Password too short.</p>
+        <p ng-show="newUserForm.password.$error.maxlength && newUserForm.password.$touched" class="help-block">Password too long.</p>
+        <p ng-show="newUserForm.password.$error.pattern && newUserForm.password.$touched" class="help-block">Password can only contain ASCII characters.</p>
+    </div>
+    <div ng-class="(newUserForm.repeatedPassword.$invalid && newUserForm.repeatedPassword.$touched) ? 'has-error' : ''" class="form-group">
+        <label>Password Repeated</label>
+        <input type="password" class="form-control" name="repeatedPassword" placeholder="password repeated" ng-model="repeatedPassword" ng-pattern="escape(password || '')" required>
+        <p ng-show="newUserForm.repeatedPassword.$invalid && newUserForm.repeatedPassword.$touched" class="help-block">Passwords must match.</p>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" ng-disabled="newUserForm.$invalid">Create User</button>
+    </div>
+</form>

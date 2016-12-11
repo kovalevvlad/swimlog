@@ -1,0 +1,5 @@
+.idea/
+*.iml
+*.class
+bower_components
+*.db

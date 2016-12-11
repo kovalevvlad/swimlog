@@ -1,0 +1,20 @@
+<div class="login-page-section" ng-controller="LoginController">
+    <form name="loginForm" data-toggle="validator" role="form" ng-submit="doLogin(username, password)" novalidate>
+        <h2>Log in</h2>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" name="username" placeholder="username" ng-model="username" ng-required="true" novalidate>
+            <p ng-show="loginForm.username.$error.required && loginForm.username.$touched" class="help-block">Username has to be specified.</p>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" placeholder="password" ng-model="password" ng-required="true" novalidate>
+            <p ng-show="loginForm.password.$error.required && loginForm.password.$touched" class="help-block">Password has to be specified.</p>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">Log In</button>
+        </div>
+    </form>
+</div>
+
+<div create-user class="login-page-section"></div>

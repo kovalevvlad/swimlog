@@ -1,0 +1,29 @@
+<div id="all-swims" ng-controller="AllSwimsController">
+    <h2>All Swims</h2>
+
+    <div class="page-section narrow" filter-by-date sl-on-click="getSwims"></div>
+
+    <div class="page-section">
+        <h4>List of All Swims</h4>
+        <div class="row swim-table-header">
+            <div class="col-xs-2">User</div>
+            <div class="col-xs-2">Date</div>
+            <div class="col-xs-2">Distance (km)</div>
+            <div class="col-xs-2">Duration (s)</div>
+            <div class="col-xs-2">Avg Speed (km/h)</div>
+            <div class="col-xs-2"></div>
+        </div>
+        <div swim-row
+             ng-repeat="swim in swims"
+             sl-swim-id="swim.id"
+             sl-date="swim.date"
+             sl-distance="swim.distanceKm"
+             sl-duration="swim.durationSeconds"
+             sl-hide-username="false"
+             sl-username="swim.user.username"
+             sl-user-id="swim.user.id"
+             sl-on-update="getSwims"></div>
+    </div>
+
+    <div class="page-section narrow" create-swim sl-on-submit="insertSwim"></div>
+</div>

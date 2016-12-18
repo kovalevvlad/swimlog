@@ -1,3 +1,5 @@
+[![codebeat badge](https://codebeat.co/badges/6ebb23e5-ebdd-449b-84e3-539cb7629030)](https://codebeat.co/projects/github-com-kovalevvlad-swimlog)
+
 # Swim Log
 This is a toy webapp that I have created to learn a bit of AngularJS and polish off my Jersey skills. The goal of the application is to let users keep a log of their swimming history. The project consists of two parts - the backend and the frontend.
 

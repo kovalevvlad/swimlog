@@ -15,7 +15,7 @@ The backend is written in Java and is using the Jersey framework. H2 is used for
 ### Running the App
 clone the project to a directory of your choice `<dir>`
 ```
-cd <dir>
+cd <dir>/backend
 mvn compile
 mvn exec:java -Dexec.mainClass="london.stambourne6.swimlog.Server"
 ```

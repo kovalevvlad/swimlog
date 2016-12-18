@@ -1,4 +1,5 @@
 [![codebeat badge](https://codebeat.co/badges/6ebb23e5-ebdd-449b-84e3-539cb7629030)](https://codebeat.co/projects/github-com-kovalevvlad-swimlog)
+![CircleCI Build Status](https://circleci.com/gh/kovalevvlad/swimlog.png?style=shield&circle-token=ecef3d0d46f0a6cd0c4da3cdd25a851123b96203 "CircleCI Build Status")
 
 # Swim Log
 This is a toy webapp that I have created to learn a bit of AngularJS and polish off my Jersey skills. The goal of the application is to let users keep a log of their swimming history. The project consists of two parts - the backend and the frontend.
